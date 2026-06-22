@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded',function(){
+  const siteHeader = document.querySelector('.site-header');
+  const backToTop = document.querySelector('.back-to-top');
+  const yearEl = document.querySelector('#year');
+
+  if(yearEl){
+    yearEl.textContent = new Date().getFullYear();
+  }
+
   // Nav toggle for small screens
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
@@ -8,6 +16,36 @@ document.addEventListener('DOMContentLoaded',function(){
       navToggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('open');
     });
+  }
+
+  // Sticky header + back-to-top state
+  function onScrollUpdate(){
+    const pastFold = window.scrollY > 24;
+    if(siteHeader){
+      siteHeader.classList.toggle('scrolled', pastFold);
+    }
+    if(backToTop){
+      backToTop.classList.toggle('show', window.scrollY > 600);
+    }
+  }
+
+  onScrollUpdate();
+  window.addEventListener('scroll', onScrollUpdate, { passive: true });
+
+  // Simple reveal animation for sections
+  const revealItems = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealItems.length){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    revealItems.forEach((item)=>observer.observe(item));
+  }else{
+    revealItems.forEach((item)=>item.classList.add('visible'));
   }
 
   // Lightbox for gallery images
@@ -24,16 +62,23 @@ document.addEventListener('DOMContentLoaded',function(){
     const img = document.createElement('img');
     img.alt = '';
 
+  const caption = document.createElement('p');
+  caption.className = 'lb-caption';
+  caption.textContent = '';
+
     const closeBtn = document.createElement('button');
     closeBtn.className = 'lb-close';
+  closeBtn.setAttribute('aria-label', 'Close image viewer');
     closeBtn.innerHTML = '✕';
     closeBtn.addEventListener('click',hideOverlay);
 
     const navWrap = document.createElement('div');
     navWrap.className = 'lb-nav';
     const prevBtn = document.createElement('button');
+    prevBtn.setAttribute('aria-label', 'Previous image');
     prevBtn.innerHTML = '‹';
     const nextBtn = document.createElement('button');
+    nextBtn.setAttribute('aria-label', 'Next image');
     nextBtn.innerHTML = '›';
     prevBtn.addEventListener('click',showPrev);
     nextBtn.addEventListener('click',showNext);
@@ -43,6 +88,7 @@ document.addEventListener('DOMContentLoaded',function(){
     content.appendChild(img);
     content.appendChild(closeBtn);
     content.appendChild(navWrap);
+    content.appendChild(caption);
     overlay.appendChild(content);
     document.body.appendChild(overlay);
 
@@ -50,6 +96,7 @@ document.addEventListener('DOMContentLoaded',function(){
       currentIndex = index;
       img.src = mediaItems[currentIndex].src;
       img.alt = mediaItems[currentIndex].alt || '';
+      caption.textContent = mediaItems[currentIndex].alt || '';
       overlay.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       img.focus && img.focus();
@@ -63,7 +110,14 @@ document.addEventListener('DOMContentLoaded',function(){
 
     mediaItems.forEach((m,i)=>{
       m.style.cursor = 'zoom-in';
+      m.setAttribute('tabindex', '0');
       m.addEventListener('click',()=>showOverlay(i));
+      m.addEventListener('keydown',(e)=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          showOverlay(i);
+        }
+      });
     });
 
     overlay.addEventListener('click',(e)=>{ if(e.target===overlay) hideOverlay(); });

@@ -7,16 +7,22 @@
   <title>Oliver Miller — Architect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,0;9..144,500..700,50&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260622-3">
 </head>
 <body>
-  <div class="top-strip" aria-hidden="true"></div>
-  <header class="site-header">
-    <a href="#intro" class="logo">Oliver Miller</a>
+  <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a href="#intro" class="logo" aria-label="Oliver Miller home">
+      <span class="logo-mark">OM</span>
+      <span class="logo-text">Oliver Miller</span>
+    </a>
     <nav class="nav" aria-label="Main navigation">
       <ul>
         <li><a href="#intro">Intro</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#gallery">Work</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -27,33 +33,69 @@
   </header>
 
   <main>
-    <!-- Intro Section -->
-    <section id="intro" class="intro">
-      <div class="intro-content">
-        <div class="intro-text">
-          <h1>Oliver Miller Architecture</h1>
-          <p class="intro-tagline">Architectural design with precision, innovation, and a commitment to excellence.</p>
-          <p class="intro-bio">Oliver Miller is a skilled architect and graduate of the Herberger School of Design and the Arts at Arizona State University, where he earned a Bachelor of Science in Design (BSD), Architectural Studies. Proficient in a broad range of 3D modeling and design software, Oliver brings both technical expertise and creative vision to every project. Recognized for a strong work ethic, adaptability, and a rapid ability to master new tools, he approaches architectural design with precision, innovation, and a commitment to excellence.</p>
-          <a href="#gallery" class="btn btn-primary">View Work</a>
+    <section id="intro" class="hero reveal">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">Architectural Portfolio</p>
+          <h1>Designing spaces with rigor, atmosphere, and clarity.</h1>
+          <p class="hero-copy">Oliver Miller is an architecture graduate from Arizona State University. His work combines conceptual precision, technical execution, and iterative model-making to produce built ideas that are thoughtful and visually compelling.</p>
+          <div class="hero-actions">
+            <a href="#gallery" class="btn btn-primary">Explore Projects</a>
+            <a href="#contact" class="btn btn-ghost">Start a Conversation</a>
+          </div>
+          <ul class="hero-metrics" aria-label="Quick highlights">
+            <li><strong>BSD</strong><span>Architectural Studies</span></li>
+            <li><strong>ASU</strong><span>Herberger Institute</span></li>
+            <li><strong>50+</strong><span>Portfolio Artifacts</span></li>
+          </ul>
         </div>
-        <div class="intro-visual">
+        <div class="hero-visual">
           <img src="assets/IMG_7157.jpg" alt="Oliver Miller, architect" width="600" height="750" class="intro-photo">
         </div>
       </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <section id="about" class="about reveal">
+      <div class="section-head">
+        <p class="eyebrow">Approach</p>
+        <h2>Methodical process. Expressive outcomes.</h2>
+      </div>
+      <div class="about-grid">
+        <article class="about-card">
+          <h3>Concept to Form</h3>
+          <p>Early-stage diagrams are translated into spatial systems that remain legible from site strategy through final presentation.</p>
+        </article>
+        <article class="about-card">
+          <h3>Digital + Physical</h3>
+          <p>Projects combine 3D software workflows with crafted physical models to test materiality, sequence, and experience.</p>
+        </article>
+        <article class="about-card">
+          <h3>Technical Strength</h3>
+          <p>Detailed plans, sections, and renderings are developed with clean linework and strong communication standards.</p>
+        </article>
+        <article class="about-card">
+          <h3>Collaboration Ready</h3>
+          <p>Reliable under deadlines, responsive to critique, and prepared to contribute to architecture and engineering teams.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery reveal">
       <div class="gallery-header">
-        <h2>Selected Work</h2>
-        <p>Projects showcasing technical skill, 3D modeling, and design innovation.</p>
+        <p class="eyebrow">Selected Work</p>
+        <h2>Project gallery and model documentation</h2>
+        <p>Click any image to open full-screen. All media is presented proportionally to preserve original composition and detail.</p>
       </div>
 
-      <!-- 3D Models & Renderings -->
       <div class="gallery-group">
-      
-      <!-- Project 1: Video-first highlight -->
       <article class="project" data-project="kinetic-forms">
+        <div class="project-head">
+          <div>
+            <p class="project-kicker">Featured Sequence</p>
+            <h3>Kinetic Forms and Spatial Compositions</h3>
+          </div>
+          <p class="project-note">Study models, presentation boards, renderings, and sectional investigations.</p>
+        </div>
         <div class="project-media">
           <div class="media-item media-video">
             <video src="assets/final-portfolio-pictures/1.mp4" controls playsinline></video>
@@ -64,7 +106,7 @@
           <div class="media-item"><img src="assets/final-portfolio-pictures/5.jpg" alt="Kinetic Forms"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/6.jpg" alt="Kinetic Forms"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/7.jpg" alt="Kinetic Forms"></div>
-          <div class="media-item"><img src="assets/final-portfolio-pictures/8.jpg" alt="Kinetic Forms"></div>
+          <div class="media-item"><img src="Screenshot_22-6-2026_0630_curly-system-v644vp6g7qgjfw5j7-8000.app.github.dev.jpeg" alt="Clean site plan with contours and building footprint"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/9.jpg" alt="Kinetic Forms"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/10.jpg" alt="Kinetic Forms"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/11.jpg" alt="Kinetic Forms"></div>
@@ -104,17 +146,22 @@
           <div class="media-item"><img src="assets/final-portfolio-pictures/47.jpg" alt="Spatial Compositions"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/48.jpg" alt="Spatial Compositions"></div>
           <div class="media-item"><img src="assets/final-portfolio-pictures/49.jpg" alt="Spatial Compositions"></div>
+          <div class="media-item"><img src="IMG_0344.jpeg" alt="Architecture presentation board with drawings and renderings"></div>
+          <div class="media-item"><img src="IMG_0409.PNG" alt="Site model top view showing landscape and program layout"></div>
+          <div class="media-item"><img src="IMG_0410.PNG" alt="Site model perspective with surrounding urban massing"></div>
+          <div class="media-item"><img src="IMG_0411.PNG" alt="Section model exterior elevation with curved circulation element"></div>
+          <div class="media-item"><img src="IMG_0412.PNG" alt="Section model interior cutaway showing stacked floors"></div>
         </div>
       </article>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact reveal">
       <div class="contact-inner">
         <div class="contact-info">
-          <h2>Get in Touch</h2>
-          <p>Available for architecture and engineering collaborations. Reach out to discuss your next project.</p>
+          <p class="eyebrow">Contact</p>
+          <h2>Available for architecture and engineering collaborations</h2>
+          <p>Reach out for internships, studio opportunities, project partnerships, or freelance visualization support.</p>
           <ul class="contact-details">
             <li><a href="tel:+13307803909">330-780-3909</a></li>
             <li><a href="mailto:olliewmil@gmail.com">olliewmil@gmail.com</a></li>
@@ -134,9 +181,14 @@
   </main>
 
   <footer class="site-footer">
-    <p>Oliver Miller — Architect. B.S. Architectural Studies, Arizona State University.</p>
+    <div class="footer-inner">
+      <p>Oliver Miller | Architect</p>
+      <p>B.S. Architectural Studies, Arizona State University</p>
+      <p><span id="year"></span> Oliver Miller. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <a href="#top" class="back-to-top" aria-label="Back to top">Top</a>
+  <script src="script.js?v=20260622-2"></script>
 </body>
 </html>
