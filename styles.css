@@ -504,18 +504,6 @@ main section{
   cursor:pointer;
 }
 
-.lb-caption{
-  position:absolute;
-  left:50%;
-  bottom:1.25rem;
-  transform:translateX(-50%);
-  color:#f4f4f2;
-  font-size:0.83rem;
-  letter-spacing:0.02em;
-  text-align:center;
-  width:min(92vw, 820px);
-}
-
 .reveal{
   opacity:0;
   transform:translateY(28px);

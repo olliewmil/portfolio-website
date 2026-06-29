@@ -62,10 +62,6 @@ document.addEventListener('DOMContentLoaded',function(){
     const img = document.createElement('img');
     img.alt = '';
 
-  const caption = document.createElement('p');
-  caption.className = 'lb-caption';
-  caption.textContent = '';
-
     const closeBtn = document.createElement('button');
     closeBtn.className = 'lb-close';
   closeBtn.setAttribute('aria-label', 'Close image viewer');
@@ -88,7 +84,6 @@ document.addEventListener('DOMContentLoaded',function(){
     content.appendChild(img);
     content.appendChild(closeBtn);
     content.appendChild(navWrap);
-    content.appendChild(caption);
     overlay.appendChild(content);
     document.body.appendChild(overlay);
 
@@ -96,7 +91,6 @@ document.addEventListener('DOMContentLoaded',function(){
       currentIndex = index;
       img.src = mediaItems[currentIndex].src;
       img.alt = mediaItems[currentIndex].alt || '';
-      caption.textContent = mediaItems[currentIndex].alt || '';
       overlay.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       img.focus && img.focus();
